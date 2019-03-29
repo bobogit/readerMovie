@@ -4,7 +4,7 @@
   <image class='user-avatar' src='/images/avatar/2.png'></image>
   <text class='user-name'>Hello, you</text>
   <!-- <button></button> -->
-  <view class='moto-container'>
+  <view class='moto-container' bindtap='onTap'>
     <text class='moto'>开启小程序</text>
   </view>
 </view>
