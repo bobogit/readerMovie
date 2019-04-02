@@ -1,6 +1,7 @@
 // pages/posts/post-detail/post-detail.js
 
 var postsData = require("../../../data/posts-data.js")
+var app = getApp();
 
 Page({
 
@@ -15,6 +16,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+
+    var globalData = app.globalData;
+
     var postId = options.id;
 
     this.data.postId = postId;

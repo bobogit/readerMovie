@@ -19,58 +19,25 @@ Page({
 
   onPostTap : function(e){
     var postId = e.currentTarget.dataset.idx;
-    console.log(postId);
     wx.navigateTo({
       url: 'post-detail/post-detail?id='+postId,
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onSwiperItemTap : function(e) {
+    var postId = e.currentTarget.dataset.idx;
+    wx.navigateTo({
+      url: 'post-detail/post-detail?id=' + postId,
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+  onSwiperTap: function(e){
 
-  },
+    // e.target 当前点击的组件  e.currentTarget 事件捕获的组件
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    var postId = e.target.dataset.idx;
+    wx.navigateTo({
+      url: 'post-detail/post-detail?id=' + postId,
+    })
   }
 })
