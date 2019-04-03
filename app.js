@@ -1,7 +1,10 @@
 App({
 
   globalData: {
-    g_isPlayingMusic: false
+    g_isPlayingMusic: false,
+
+    doubanBase: "http://t.yushu.im"
+
   },
 
   /**
