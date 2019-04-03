@@ -37,7 +37,7 @@ Page({
 
     var that = this;
 
-    util.http(url, function(data){
+    util.http(url, function(data) {
       var movies = [];
       for (var idx in data.subjects) {
         var subject = data.subjects[idx];
@@ -55,12 +55,18 @@ Page({
           stars: util.convertToStarArray(subject.rating.stars)
         }
         movies.push(temp);
-      }     
+      }
 
-      that.setData({ movies: movies});
+      that.setData({
+        movies: movies
+      });
 
     })
 
+  },
+
+  onScrollLower: function(e) {
+    console.log("onScrollLower");
   },
 
   onReady: function(event) {
