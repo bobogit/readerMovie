@@ -27,7 +27,12 @@ function http(url, callback){
   })
 }
 
+function convertToCastString() {
+
+}
+
 module.exports = {
   convertToStarArray: convertToStarArray,
-  http: http
+  http: http,
+  convertToCastString: convertToCastString
 }
