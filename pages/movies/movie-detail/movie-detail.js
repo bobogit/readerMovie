@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    movie: {}
   },
 
   /**
@@ -22,7 +22,9 @@ Page({
 
   processDoubanData: function(data) {
 
-      console.log(data);
+      if(!data){
+        return;
+      }
 
       var director = {
         avatar : "",
@@ -30,12 +32,12 @@ Page({
         id: ""
       }
 
-      if(data.director[0] != null) {
-        if(data.director[0].avatars != null) {
-          director.avatar = data.director[0].avatars.large;
+      if(data.directors[0] != null) {
+        if(data.directors[0].avatars != null) {
+          director.avatar = data.directors[0].avatars.large;
         }
-        director.name = data.director[0].name;
-        director.id = data.director[0].id;
+        director.name = data.directors[0].name;
+        director.id = data.directors[0].id;
       }
 
       var movie = {
@@ -50,9 +52,11 @@ Page({
         stars : util.convertToStarArray(data.rating.stars),
         score: data.rating.average,
         director: director,
-        // casts:
+        casts: util.convertToCastString(data.casts),
+        castsInfo: util.convertToCastInfos(data.casts),
         summary: data.summary
       }
+
       this.setData({
         movie: movie
       })

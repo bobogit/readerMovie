@@ -97,5 +97,11 @@ Page({
       searchPanelShow: false,
       searchResult: {} //清空
     })
+  },
+
+  onMovieDetailTap: function(e){
+    wx.navigateTo({
+      url: 'movie-detail/movie-detail?idx='+e.currentTarget.dataset.idx,
+    })
   }
 })

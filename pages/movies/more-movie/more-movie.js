@@ -107,5 +107,11 @@ Page({
     this.data.isEmpty = true;
     this.data.totalCount = 0;
     util.http(refreshUrl, this.processDoubanData);
+  },
+
+  onMovieDetailTap: function (e) {
+    wx.navigateTo({
+      url: '../movie-detail/movie-detail?idx=' + e.currentTarget.dataset.idx,
+    })
   }
 })
