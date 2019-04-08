@@ -10,7 +10,10 @@ Page({
   data: {
     inTheaters: {},
     comingSoon: {},
-    top250: {}
+    top250: {},
+    containerShow: true,
+    searchPanelShow: false,
+    searchResult: {}
   },
 
   /**
@@ -34,7 +37,7 @@ Page({
 
     var that = this;
 
-    util.http(url, function(data){
+    util.http(url, function(data) {
       that.processDoubanData(data, title, key);
     })
   },
@@ -68,17 +71,31 @@ Page({
     this.setData(tempData);
   },
 
-  onMoreTap: function(e){
+  onMoreTap: function(e) {
     var category = e.currentTarget.dataset.category;
     wx.navigateTo({
       url: 'more-movie/more-movie?category=' + category,
     })
   },
 
-  onMovieDetailTap: function(e) {
-    var movieId = e.currentTarget.dataset.idx;
-    wx.navigateTo({
-      url: 'movie-detail/movie-detail?idx='+movieId
+  onBindConfirm: function(e) {
+    var text = e.detail.value;
+    var searchUrl = app.globalData.doubanBase + "/v2/movie/search?q=" + text;
+    this.getMovieListData(searchUrl, "", "searchResult");
+  },
+
+  onBindFocus: function(e) {
+      this.setData({
+        containerShow: false,
+        searchPanelShow: true
+      })
+  },
+
+  onCancelImgTap: function(e) {
+    this.setData({
+      containerShow: true,
+      searchPanelShow: false,
+      searchResult: {} //清空
     })
   }
 })

@@ -2,6 +2,7 @@
 
 .grid-container{
   margin: 40rpx 0 40rpx 6rpx;
+   height: 1300rpx; /* 需要给高度之后,滚动才有效果 */
 }
 
 .single-view-container{
