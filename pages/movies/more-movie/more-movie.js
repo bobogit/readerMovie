@@ -86,12 +86,19 @@ Page({
     wx.stopPullDownRefresh();
   },
 
-  onScrollLower: function(e) {
+  // onScrollLower: function(e) {
 
-    var nextUrl = this.data.url + '?start=' + this.data.totalCount + '&count=20';
-    wx.showNavigationBarLoading();
-    util.http(nextUrl, this.processDoubanData);
+  //   var nextUrl = this.data.url + '?start=' + this.data.totalCount + '&count=20';
+  //   wx.showNavigationBarLoading();
+  //   util.http(nextUrl, this.processDoubanData);
    
+  // },
+
+  onReachBottom: function (event) {
+    var nextUrl = this.data.url +
+      "?start=" + this.data.totalCount + "&count=20";
+    util.http(nextUrl, this.processDoubanData)
+    wx.showNavigationBarLoading();
   },
 
   onReady: function(event) {
